@@ -19,6 +19,9 @@
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
@@ -42,6 +45,7 @@ AB_OTA_PARTITIONS += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
+    checkpoint_gc \
     cppreopts.sh \
     update_engine \
     update_verifier \
@@ -52,6 +56,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
 
 # tell update_engine to not change dynamic partition table during updates
 # needed since our qti_dynamic_partitions does not include
@@ -79,6 +89,10 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
+
+# Shipping level
+PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
