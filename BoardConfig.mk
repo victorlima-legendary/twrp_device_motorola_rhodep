@@ -214,6 +214,9 @@ TW_H_OFFSET := -48
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# Battery
+TW_USE_LEGACY_BATTERY_SERVICES := true
+
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CLOCK_POS := 50
