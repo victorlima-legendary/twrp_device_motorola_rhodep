@@ -210,6 +210,10 @@ TW_HAS_EDL_MODE := true
 TW_Y_OFFSET := 48
 TW_H_OFFSET := -48
 
+# Props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CLOCK_POS := 50
