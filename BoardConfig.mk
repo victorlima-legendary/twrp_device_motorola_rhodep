@@ -256,16 +256,6 @@ TW_LOAD_VENDOR_MODULES := "adapter_class.ko \
             sensors_class.ko \
             sgm4154x_charger.ko \
             sm5602_fg_mmi.ko \
-            synaptics_tcm_core.ko \
-            synaptics_tcm_device.ko \
-            synaptics_tcm_diagnostics.ko \
-            synaptics_tcm_i2c.ko \
-            synaptics_tcm_recovery.ko \
-            synaptics_tcm_reflash.ko \
-            synaptics_tcm_spi.ko \
-            synaptics_tcm_testing.ko \
-            synaptics_tcm_touch.ko \
-            synaptics_tcm_zeroflash.ko \
             tcpc_class.ko \
             tcpc_sgm7220.ko \
             utags.ko"
