@@ -29,6 +29,8 @@ import /init.recovery.qcom_decrypt.rc
 
 on boot
     start health-hal-2-1
+    write /sys/fs/selinux/enforce 0
+    setprop sys.usb.config.mtp.adb
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
