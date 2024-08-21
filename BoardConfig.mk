@@ -181,6 +181,7 @@ PLATFORM_VERSION := 16.1.0
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 BOARD_USES_METADATA_PARTITION := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_FSCRYPT_POLICY := 1
 
@@ -258,7 +259,15 @@ TW_LOAD_VENDOR_MODULES := "adapter_class.ko \
             sm5602_fg_mmi.ko \
             tcpc_class.ko \
             tcpc_sgm7220.ko \
-            utags.ko"
+            utags.ko \
+            apr_dlkm.ko \
+            focaltech_v3.ko \
+            goodix_brl_mmi.ko \
+            mmi_discrete_turbo_charger.ko \
+            mmi_relay.ko \
+            q6_notifier_dlkm.ko \
+            snd_event_dlkm.ko \
+            touchscreen_mmi.ko"
 
 # Include decryption support
 TW_INCLUDE_CRYPTO := true
